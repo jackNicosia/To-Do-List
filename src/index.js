@@ -1,10 +1,7 @@
 import './styles.css';
+import projectFactory from './projectFactory';
 
 
-//Project Factory Function
-const projectFactory = (name, tasks) => {
-    return {name, tasks};
-};
 
 
 const projectInput = document.getElementById('new-project-input')
@@ -42,14 +39,13 @@ projectButton.addEventListener('click', function(){
         projects.push(newProject);
 
 
-        //Create a serialized version of the projects array.
-        let projects_serialized = JSON.stringify(projects);
+       
 
         //Store the serialized version of the projects array.
-        localStorage.setItem("projectArray", projects_serialized); 
+        localStorage.setItem("projectArray", JSON.stringify(projects)); 
 
        
-        console.log(projects_serialized);
+      
         console.log(projects);
 
     } 
